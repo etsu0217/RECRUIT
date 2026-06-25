@@ -52,7 +52,7 @@ window.addEventListener('scroll', () => {
 $(function(){
 
   $('.interview-slider').slick({
-    slidesToShow: 4.75,
+    slidesToShow: 3.78,
     slidesToScroll: 1,
 
     autoplay: true,
@@ -93,13 +93,24 @@ const slide = document.querySelector('.slide-area');
 const interview = document.querySelector('.interview-area');
 
 window.addEventListener('scroll', () => {
-  const end = interview.offsetTop + interview.offsetHeight - window.innerHeight;
+
+  const end =
+    interview.offsetTop +
+    interview.offsetHeight -
+    slide.offsetHeight -
+    145;
 
   if (window.scrollY >= end) {
+
     slide.style.position = 'absolute';
-    slide.style.top = (interview.offsetHeight - window.innerHeight) + 'px';
+    slide.style.top =
+      (interview.offsetHeight - slide.offsetHeight) + 'px';
+
   } else {
+
     slide.style.position = 'fixed';
-    slide.style.top = '0';
+    slide.style.top = '145px';
+
   }
+
 });

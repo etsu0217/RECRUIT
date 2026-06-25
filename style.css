@@ -372,9 +372,9 @@ NEWS
 .home_news--wrap{
   display:flex;
   align-items:center;
-  border-radius: 30px;
-  overflow: hidden;      /* 超重要 */
-  padding: 70px;
+  border-radius:30px;
+  overflow:hidden;
+  box-sizing:border-box;
 }
 
 /* slick対策（これ超重要） */
@@ -423,7 +423,7 @@ NEWS
  gap:20px;
 
  background:#fbe7e7;
- padding:0 40px 0 100px;
+ padding:0 40px;
 }
 
 /* slick対策 */
@@ -433,7 +433,7 @@ NEWS
 }
 
 .news_list .slick-slide{
-  height:inherit !important;
+  height: auto;
 }
 
 /* 1行 */
@@ -503,7 +503,6 @@ NEWS
 
 .txt1{
   position: relative;
-  top: -80px;
   display: inline-block;
   background: rgba(255, 255, 255, 0.8);
  
@@ -583,6 +582,7 @@ NEWS
   transform-box: fill-box;
   transform-origin: center;
 }
+
 
 /* 左の赤線 */
 .home_message--en::before{
@@ -711,7 +711,7 @@ NEWS
   position: absolute;
   top: 330px;
 
-  width: 1000px;
+  width: 900px;
   height: 800px;
   object-fit: cover; 
 
@@ -1093,7 +1093,7 @@ NEWS
 .arrow-circle{
   position:absolute;
 
-  right:170px;
+  right:190px;
   bottom: 70px;
 
   width:46px;
@@ -1817,7 +1817,7 @@ letter-spacing: 0.1em;}
 
 .breadcrumb{
   margin-top: 90px;
-  font-size: 15px;
+  font-size: 12px;
   font-weight: bold;
   letter-spacing: 0.15rem;
 }
@@ -1851,13 +1851,14 @@ letter-spacing: 0.1em;}
 
   color: #fff;        
   font-family: 'Montserrat', sans-serif;
-  z-index: 1;
+  z-index: 100;
 }
 
 /* ==========================
    INTERVIEW
 ========================== */
 .interview-area{
+  position: relative; 
   display:flex;
   align-items:flex-start;
   max-width:1445px;
@@ -1867,28 +1868,21 @@ letter-spacing: 0.1em;}
 /* 左カラム */
 .slide-area{
   width: 50%;
-  height: 100vh;
+  height: calc(100vh - 145px);
   position: fixed;
   top: 145px;
   left: 0;
+  z-index: 100;
 }
 
-/* Slick */
+/* Slick
 .slides,
 .slick-list,
 .slick-track,
-.slick-slide{
+slick-slide.{
   height:100vh;
-}
+} */
 
-/* 画像 */
-.slides img,
-.slick-slide img{
-  width:100%;
-  height:100vh;
-  object-fit:cover;
-  display:block;
-}
 
 /* 右カラム */
 .member-area{
@@ -2106,4 +2100,59 @@ letter-spacing: 0.1em;}
 .fixed-nav__entry span{
   position: relative;
   z-index: 1;
+}
+
+.recruitment{
+  width: 50%;
+  margin-left: 50%;
+
+  position: relative;
+  padding: 60px 20px 40px;
+
+  border: 1px solid #e87d92;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.recruitment-title{
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background: #fff;
+  color: #d93c62;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  padding: 8px 50px;
+  border-radius: 30px;
+  margin: 0;
+}
+
+.recruitment-table{
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 40px;
+  table-layout: fixed;
+}
+
+.recruitment-table th,
+.recruitment-table td{
+  border: 1px solid #e87d92;
+  padding: 16px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.recruitment-table th{
+  width: 160px;
+  text-align: center;
+  background: #f3dde2;
+  font-weight: 700;
+}
+
+.recruitment-table td{
+  background: #fff;
 }
