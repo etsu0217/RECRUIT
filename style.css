@@ -2104,43 +2104,52 @@ slick-slide.{
   z-index: 1;
 }
 
+.interview-area2 {
+  position: relative; 
+  display:flex;
+  align-items:flex-start;
+  margin:0 auto;
+  background:#fff8f8;
+}
+
 /* * ==========================
    タイトル
 ========================== */ 
 .ttl-02{
-  text-align:center;
-  font-size:36px;
+  text-align:left;
+  font-size:2rem;
   font-weight:700;
-  margin-bottom:60px;
+  margin:40px 0;
+  letter-spacing: 2px;
 }
 
 .ttl-02 span{
   font-size:14px;
   margin-left:10px;
-  font-weight:400;
+  font-weight:bolder;
 }
 
 /* 右 */
 .recruitment{
-  width:50%;
-  margin-left:50%;
+  width:40%;
+  margin-left:54%;
 }
 
 /* innerの幅制限を解除 */
 .recruitment .inner-sm{
   max-width:100%;
-}
+} 
 
 /* ==========================
    募集要項ボックス
 ========================== */
 .requirements--requirements{
   position:relative;
-  background:#fff8f8;
+  background:#fff;
   border:2px solid #f5a5b5;
   border-radius:10px;
-  padding:60px 20px 30px;
-  max-width:700px;
+  padding:60px 50px 30px;
+  max-width:750px;
   margin:0 auto;
 }
 
@@ -2178,16 +2187,20 @@ slick-slide.{
 }
 
 .table2 th{
-  width:180px;
-  background:#f8e8ec;
-  text-align:center;
-  font-weight:700;
-  font-size:14px;
+  width: 150px; 
+  height: 60px;
+  background: #f8e8ec;
+  text-align: center;
+
+  line-height: 60px;
 }
 
 .table2 td{
+  letter-spacing: 0.05rem;
+  line-height: 1.8;
   background:#fff;
-  font-size:14px;
+  font-size:15px;
+  font-weight: 500;
 }
 
 /* ==========================
@@ -2201,15 +2214,27 @@ slick-slide.{
   padding-left:16px;
 }
 
-.editor-ttl3::before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:4px;
+.editor-ttl3{
+  position: relative;
+}
 
-  width:4px;
-  height:18px;
-  background:#d9486e;
+.editor-ttl3::before,
+.editor-ttl3::after{
+  content: "";
+  position: absolute;
+  top: 8px;
+
+  width: 2.5px;
+  height: 18px;
+  background: #d91f45;
+}
+
+.editor-ttl3::before{
+  left: 0;
+}
+
+.editor-ttl3::after{
+  left: 6px; /* 線同士の間隔 */
 }
 
 .blc-sm{
@@ -2250,7 +2275,7 @@ slick-slide.{
   padding: 80px 60px 60px;
   border: 2px solid #f5a3b5;
   border-radius: 20px;
-  background: #fffafa;
+  background: #fff;
 }
 
 .requirements--flow_box .ttl-kadomaru{
@@ -2305,8 +2330,8 @@ slick-slide.{
 
 /* step01 */
 .requirements--flow .num{
-  width: 95px;
-  height: 34px;
+  width: 120px;
+  height: 30px;
 
   background: #e63a57;
   color: #fff;
@@ -2317,49 +2342,76 @@ slick-slide.{
   align-items: center;
   justify-content: center;
 
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
 
   position: relative;
   z-index: 2;
 }
 
+.requirements--flow li{
+  position: relative;
+  padding: 12px 0;
+}
+
 /* ラインからボックスへ */
 .requirements--flow .num::after{
   content: "";
   position: absolute;
-  left: 95px;
-  top: 50%;
+  left: 92px;
+  top: 15px; /* ←固定にする */
 
-  width: 60px;
-  height: 2px;
+  width: 50px;
+  height: 1px;
 
   background: #e63a57;
 }
 
+
+/* 左端の丸 */
+.requirements--flow .num::before{
+  content: "";
+  position: absolute;
+  left: 92px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #e63a57;
+}
+
+.space-before{
+  margin-left: 1em;
+}
+
 /* ボックス */
 .requirements--flow .txtarea{
-  margin-left: 100px;
+  margin-left: 60px;
 
-  width: calc(100% - 200px);
+  width: 500px;
 
-  padding: 18px 25px;
+  padding: 20px 0;
 
   border: 1px solid #e63a57;
   border-radius: 4px;
   background: #fff;
+  font-weight: 600;
 }
 
 .requirements--flow .txtarea p{
-  margin: 0;
+  margin: 0 10px;
 }
 
 .txt-attention{
   display: block;
-  margin-top: 10px;
+  margin: 10px 0;
 
-  font-size: 0.85rem;
-  color: #666;
+  line-height: 1.5;
+  letter-spacing: 0.1rem;
+  font-size: 0.8rem;
+  color: #646464;
 }
 
 /* ==========================
@@ -2378,31 +2430,83 @@ slick-slide.{
 }
 
 .btn-entry a{
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 
   height: 60px;
+  overflow: hidden;
 
   border: 1px solid #e63a57;
+  border-radius: 8px;
   background: #fff;
 
   color: #e63a57;
   text-decoration: none;
   font-weight: 700;
 
-  transition: .3s;
+  transition: color .4s;
 }
 
-.btn-entry a:hover{
+/* 左から流れる背景 */
+.btn-entry a::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 0;
+  height: 100%;
+
   background: #e63a57;
+  transition: width .4s ease;
+  z-index: 0;
+}
+
+/* 左の丸 */
+.btn-entry a::after{
+  content: "";
+  position: absolute;
+  left: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  z-index: 1;
+}
+
+/* 右の丸 */
+.btn-entry a .icon-svg{
+  right: -50px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* テキストとSVGを前面へ */
+.btn-entry a > *{
+  position: relative;
+  z-index: 1;
+}
+
+/* hover */
+.btn-entry a:hover{
   color: #fff;
+}
+
+.btn-entry a:hover::before{
+  width: 100%;
 }
 
 /* ==========================
   一覧へ戻る
 ========================== */
-.wp-pagenavi{
+.wp-pagenavi {
   text-align: center;
   margin-top: 60px;
 }
@@ -2414,7 +2518,7 @@ slick-slide.{
   color: #fff;
 
   padding: 12px 30px;
-  border-radius: 4px;
+  border-radius: 10px;
 
   text-decoration: none;
   font-weight: 700;
